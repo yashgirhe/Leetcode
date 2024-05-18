@@ -17,16 +17,13 @@ class Solution {
             return head;
         }
         ListNode prevNode = head;
-        ListNode currNode =prevNode.next;
-        ArrayList<Integer> al = new ArrayList();
-        al.add(prevNode.val);
+        ListNode currNode = head.next;
         while(currNode != null){
-            if(al.contains(currNode.val)){
-                prevNode.next = currNode.next;
-            }
-            else{
-                al.add(currNode.val);
+            if(currNode.val > prevNode.val){
                 prevNode = currNode;
+            }
+            else if(currNode.val == prevNode.val){
+                prevNode.next = currNode.next;
             }
             currNode = currNode.next;
         }
